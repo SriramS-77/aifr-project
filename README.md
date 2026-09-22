@@ -10,18 +10,27 @@ Our unified framework leverages three powerful architectures to build a robust A
 
 ### 1. CycleGAN (Synthetic Age Simulation)
 We utilize a CycleGAN-based module to generate realistic age-progressed and age-regressed images without relying on explicit age labels. This bidirectionally translates between younger and older face domains while preserving the core identity.
-![CycleGAN Architecture](img/cyclegan_architecture.png)
-*(Note: Please ensure this image exists at `img/cycle_gan_architecture.png`)*
+
+<div align="center">
+  <img src="img/cycle_gan_architecture.png" alt="CycleGAN Architecture" width="600">
+  <p><em>CycleGAN Architecture</em></p>
+</div>
 
 ### 2. Vision Transformers & CNN Backbones (Deep Feature Extraction)
 The augmented images are processed through multiple backbone architectures to capture both local textures and global facial structures. Evaluated models include ResNet18, VGG19, EfficientNet-B0, and the **Vision Transformer (ViT-B/16)**.
-![Vision Transformer Architecture](img/vit_architecture.png)
-*(Note: Please ensure this image exists at `img/vit_architecture.png`)*
+
+<div align="center">
+  <img src="img/vit_architecture.png" alt="Vision Transformer Architecture" width="600">
+  <p><em>Vision Transformer (ViT) for global feature modeling</em></p>
+</div>
 
 ### 3. Siamese Network (Contrastive Representation Learning)
 To learn age-invariant representations, we use a Siamese network with shared weights. Each branch extracts embeddings via a frozen pretrained backbone, mapping them to a lower-dimensional space using an MLP projection head. The network is trained using contrastive loss to pull together same-identity pairs across age gaps and push apart different identities.
-![Siamese Network Architecture](img/siamese_network_architecture.png)
-*(Note: Please ensure this image exists at `img/siamese_network_architecture.png`)*
+
+<div align="center">
+  <img src="img/siamese_network_architecture.png" alt="Siamese Network Architecture" width="300">
+  <p><em>Siamese Network trained with Contrastive Loss for identity similarity</em></p>
+</div>
 
 ## Methodology & Pipeline Integration
 
